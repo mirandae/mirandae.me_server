@@ -16,6 +16,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("key:", k)
 		fmt.Println("val:", strings.Join(v, ""))
 	}
+	log.Printf("\nNew visitor from %s", r.RemoteAddr)
 	fmt.Fprintf(w, "Hello friend! Looks like you're visiting from %s", r.RemoteAddr)
 }
 
