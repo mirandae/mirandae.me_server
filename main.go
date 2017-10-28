@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"projects/mirandae.me/api"
 	"strings"
 )
 
@@ -14,7 +15,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("val:", strings.Join(v, ""))
 	}
 	log.Printf("\nNew visitor from %s", r.RemoteAddr)
-	LogLocation(fmt.Sprint(r.RemoteAddr))
+	api.LogLocation(fmt.Sprint(r.RemoteAddr))
 	fmt.Fprintf(w, "Hello friend! Looks like you're visiting from %s", r.RemoteAddr)
 }
 
