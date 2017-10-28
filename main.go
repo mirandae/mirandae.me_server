@@ -4,11 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"projects/mirandae.me/internal/api"
 	"strings"
 )
-
-const IP_GEOLOCATION = "http://ip-api.com/json"
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
@@ -17,7 +14,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("val:", strings.Join(v, ""))
 	}
 	log.Printf("\nNew visitor from %s", r.RemoteAddr)
-	api.LogLocation(fmt.Sprint(r.RemoteAddr))
+	LogLocation(fmt.Sprint(r.RemoteAddr))
 	fmt.Fprintf(w, "Hello friend! Looks like you're visiting from %s", r.RemoteAddr)
 }
 
